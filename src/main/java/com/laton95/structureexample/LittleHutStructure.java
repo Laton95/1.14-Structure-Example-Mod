@@ -28,7 +28,7 @@ public class LittleHutStructure extends ScatteredStructure<NoFeatureConfig> {
 	}
 	
 	/**
-	 * A modifier to the random seed for scattered structures, so that every structure does not spawn in the same places
+	 * A modifier to the random seed for scattered structures, so that every structure does not spawn in the same place
 	 *
 	 * @return a number, vanilla likes to specifically use 8 digit numbers
 	 */

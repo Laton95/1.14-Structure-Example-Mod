@@ -35,7 +35,7 @@ public class LittleHutPiece extends TemplateStructurePiece {
 	private final Rotation rotation;
 	
 	/**
-	 * This is the constructor we use ourselves, the other constructor is needed for the piece
+	 * This is the constructor we use ourselves, the other constructor is needed for the piece type
 	 */
 	public LittleHutPiece(TemplateManager templateManager, ResourceLocation templateResource, BlockPos pos, Rotation rotation) {
 		super(StructureRegistry.LITTLE_HUT_PIECE, 0);

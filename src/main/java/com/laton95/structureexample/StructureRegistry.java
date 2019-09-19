@@ -39,72 +39,83 @@ public class StructureRegistry {
 		LittleHutStructure hut = new LittleHutStructure(NoFeatureConfig::deserialize);
 		hut.setRegistryName(StructureExample.MOD_ID, "little_hut");
 		event.getRegistry().register(hut);
-	}
+	}	
 	
 	/**
-	 * A helper method to add structures to a biome
-	 * It is important that each structure be added both as a feature and as a structure
-	 *
-	 * @param biome     the biome to add the structure to
-	 * @param stage     the generation stage to spawn the structure
-	 * @param structure the structure
+	 * Structures should be added as features to any biome that they might overlap into, to avoid generation being cut off at chunk edges
+	 * Structures can be added as structures to any biome they should start in
 	 */
-	private static void addStructure(Biome biome, GenerationStage.Decoration stage, Structure structure) {
-		biome.addFeature(stage, Biome.createDecoratedFeature(structure, IFeatureConfig.NO_FEATURE_CONFIG, Placement.NOPE, IPlacementConfig.NO_PLACEMENT_CONFIG));
-		biome.addStructure(structure, IFeatureConfig.NO_FEATURE_CONFIG);
+	private static void addOverworldStructures(Biome biome) {
+		biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG, Placement.NOPE, IPlacementConfig.NO_PLACEMENT_CONFIG));
 	}
 	
 	/**
 	 * Add structures and features to biomes
 	 * Should be called after the registry events have run, so that all biomes and features already exist
 	 * Using categories like this is just one way of choosing which biome to place a feature in
+	 * It is important that each structure be added both as a feature and as a structure
 	 */
 	@SubscribeEvent
 	public static void applyFeatures(FMLCommonSetupEvent event) {
 		for(Biome biome : ForgeRegistries.BIOMES.getValues()) {
 			switch(biome.getCategory()) {
 				case NONE:
+					addOverworldStructures(biome);
 					break;
 				case TAIGA:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case EXTREME_HILLS:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case JUNGLE:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case MESA:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case PLAINS:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case SAVANNA:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case ICY:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case THEEND:
 					break;
 				case BEACH:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case FOREST:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case OCEAN:
+					addOverworldStructures(biome);
 					break;
 				case DESERT:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case RIVER:
+					addOverworldStructures(biome);
 					break;
 				case SWAMP:
+					addOverworldStructures(biome);
 					break;
 				case MUSHROOM:
-					addStructure(biome, GenerationStage.Decoration.SURFACE_STRUCTURES, LITTLE_HUT);
+					biome.addStructure(LITTLE_HUT, IFeatureConfig.NO_FEATURE_CONFIG);
+					addOverworldStructures(biome);
 					break;
 				case NETHER:
 					break;
